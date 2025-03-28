@@ -1,0 +1,8 @@
+com\cinema\CinemaScheduleApplication.class
+com\cinema\model\Film.class
+com\cinema\config\SecurityConfig.class
+com\cinema\repository\FilmRepository.class
+com\cinema\service\FilmService.class
+com\cinema\controller\FilmController.class
+com\cinema\config\WebConfig.class
+com\cinema\config\SecurityConfig$1.class
