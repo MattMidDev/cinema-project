@@ -1,0 +1,12 @@
+<h2>Film in programmazione</h2>
+<a routerLink="/login">Accedi come amministratore</a>
+<a routerLink="/ricerca" style="margin-top: 10px; display: inline-block; color: blue;">
+  🔍 Cerca film per data
+</a>
+<ul>
+  <li *ngFor="let film of films">
+    <strong>{{ film.titolo }}</strong><br />
+    {{ film.descrizione }}<br />
+    Dal {{ film.dataInizio }} al {{ film.dataFine }}
+  </li>
+</ul>

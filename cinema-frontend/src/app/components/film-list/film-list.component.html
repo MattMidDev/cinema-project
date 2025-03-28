@@ -1,0 +1,13 @@
+<h2>CineMille</h2>
+<a routerLink="/login">Accedi come amministratore</a><br>
+<a routerLink="/ricerca" style="margin-top: 10px; display: inline-block; color: blue;">
+  Cerca film per data
+</a>
+<ul>
+  <li *ngFor="let film of films">
+    <strong>{{ film.titolo }}</strong> – {{ film.dataInizio }} → {{ film.dataFine }}
+    <br />
+    <span>{{ film.orario }} – {{ film.genere }} – {{ film.sala }}</span>
+    <p *ngIf="film.descrizione">{{ film.descrizione }}</p>
+  </li>  
+</ul>

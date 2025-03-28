@@ -1,0 +1,49 @@
+<!-- Form per inserire un nuovo film -->
+<form [formGroup]="filmForm" (ngSubmit)="submit()">
+  <input type="text" formControlName="titolo" placeholder="Titolo" /><br />
+  <input type="text" formControlName="descrizione" placeholder="Descrizione" /><br />
+  <input type="date" formControlName="dataInizio" /><br />
+  <input type="date" formControlName="dataFine" /><br />
+  <input type="time" formControlName="orario" /><br />
+  <input type="text" formControlName="sala" placeholder="Sala" /><br />
+  <input type="text" formControlName="genere" placeholder="Genere" /><br />
+  <button type="submit">Aggiungi Film</button>
+</form>
+
+<hr />
+
+<!-- Form per la ricerca per anno -->
+<form [formGroup]="annoForm" (ngSubmit)="searchPastByYear()">
+  <input type="text" formControlName="anno" placeholder="Inserisci anno es: 2022" />
+  <button type="submit">Cerca per anno</button>
+  <button type="button" (click)="resetFiltri()">Mostra tutto lo storico</button>
+</form>
+
+<hr />
+
+<!-- Risultati della ricerca -->
+<h3 *ngIf="filmsFiltrati.length > 0">Risultati della ricerca per anno:</h3>
+<ul *ngIf="filmsFiltrati.length > 0">
+  <li *ngFor="let film of filmsFiltrati">
+    <strong>{{ film.titolo }}</strong><br />
+    {{ film.descrizione }}<br />
+    {{ film.dataInizio }} → {{ film.dataFine }}<br />
+    Orario: {{ film.orario }} | Sala: {{ film.sala }} | Genere: {{ film.genere }}
+  </li>
+</ul>
+
+<!-- Storico completo -->
+<h3 *ngIf="filmsFiltrati.length === 0">Storico completo:</h3>
+<ul *ngIf="filmsFiltrati.length === 0">
+  <li *ngFor="let film of filmsStorico">
+    <strong>{{ film.titolo }}</strong><br />
+    {{ film.descrizione }}<br />
+    {{ film.dataInizio }} → {{ film.dataFine }}<br />
+    Orario: {{ film.orario }} | Sala: {{ film.sala }} | Genere: {{ film.genere }}
+  </li>
+</ul>
+
+<hr />
+
+<!-- Pulsante di logout -->
+<button (click)="logout()">Esci dal pannello admin</button>

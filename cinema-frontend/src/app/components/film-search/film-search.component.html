@@ -1,0 +1,21 @@
+<h3>Ricerca Film per Data</h3>
+
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+  <label>Data Inizio:</label>
+  <input type="date" formControlName="start" />
+
+  <label>Data Fine:</label>
+  <input type="date" formControlName="end" />
+
+  <button type="submit">Cerca</button>
+</form>
+
+<hr />
+
+<ul>
+  <li *ngFor="let film of filteredFilms">
+    <strong>{{ film.titolo }}</strong> – {{ film.dataInizio }} → {{ film.dataFine }}<br />
+        {{ film.orario }} – {{ film.genere }} – {{ film.sala }}
+    <p *ngIf="film.descrizione">{{ film.descrizione }}</p>
+  </li>
+</ul>
